@@ -262,6 +262,12 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="spring_mvc.html">Les applications Web avec Spring Web MVC</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-controleurs">Les contrôleurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#les-vues-thymeleaf">Les vues Thymeleaf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id1">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id2">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-vues-thymeleaf">Utilisation des vues Thymeleaf</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#le-modele">Le modèle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#une-application-multi-couches-n-tiers">Une application multi-couches (N-Tiers)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#la-signature-des-methodes-de-controleur">La signature des méthodes de contrôleur</a><ul>
@@ -269,9 +275,11 @@
 <li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#la-valeur-de-retour">La valeur de retour</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#gestion-des-formulaires-avec-thymeleaf">Gestion des formulaires avec Thymeleaf</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#externalisation-des-messages">Externalisation des messages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id4">Pour une application avec Spring Boot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#id5">Pour une application sans Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spring_mvc.html#utilisation-des-messages-avec-thymeleaf">Utilisation des messages avec Thymeleaf</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="spring_mvc.html#validation-des-parametres-d-une-requete">Validation des paramètres d’une requête</a><ul>
@@ -440,6 +448,9 @@ en étant plus expressif). Pour la configuration d’un contexte d’application
 ce langage permet l’évaluation d’expressions pour désigner le <em>bean</em> ou la valeur
 à injecter. Lorsqu’elle est écrite comme valeur de l’annotation <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Value.html">&#64;Value</a>, une
 expression SpEL est délimitée par <code class="docutils literal notranslate"><span class="pre">#{</span></code> <code class="docutils literal notranslate"><span class="pre">}</span></code> .</p>
+<p>Nous verrons dans le chapitre <a class="reference internal" href="spring_mvc.html"><span class="doc">Les applications Web avec Spring Web MVC</span></a> que les expressions SpEL
+sont surtout utiles pour produire des pages Web dynamiquement à partir du
+moteur de rendu Thymeleaf.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pour une présentation complète du langage SpEL, reportez-vous à la
