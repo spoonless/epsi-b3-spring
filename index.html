@@ -487,7 +487,7 @@ contrôleur, de service et de <em>repository</em>.</p></li>
 <div class="section" id="exercice">
 <h2>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="exercice admonition">
-<p class="admonition-title">TP ORM JPA - Les animaux</p>
+<p class="admonition-title">TP à rendre - Les animaux</p>
 <dl>
 <dt>Projet initial</dt><dd><p>Vous devez télécharger le projet initial <a class="reference download internal" download="" href="_downloads/c1114436279f583df0a72e93a0ae0149/animaux-orm.zip"><code class="xref download docutils literal notranslate"><span class="pre">animaux-orm.zip</span></code></a>.</p>
 <p>Ce projet contient la classe <code class="docutils literal notranslate"><span class="pre">com.animoz.Application</span></code> fournissant un
@@ -590,6 +590,68 @@ SQL, <strong>utilisez JPQL</strong>.</p>
 <dt>L’API Spring</dt><dd><p><a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/">https://docs.spring.io/spring/docs/current/javadoc-api/</a></p>
 </dd>
 <dt>Guide Spring</dt><dd><p><a class="reference external" href="https://spring.io/guides">https://spring.io/guides</a></p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="projet-de-demo">
+<h2>Projet de démo<a class="headerlink" href="#projet-de-demo" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Vous pouvez télécharger un projet Spring Boot de démo. Ce projet correspond
+à une application de commande de pizzas en ligne. Ce projet fonctionne avec
+une base de données H2 en mémoire qui est créée au lancement de l’application.
+Vous n’avez donc pas besoin d’un serveur de base de données pour lancer l’application.</p>
+<blockquote>
+<div><p><a class="reference download internal" download="" href="_downloads/00778f8691588f3d0d62c71c281878d2/pizzaee.zip"><code class="xref download docutils literal notranslate"><span class="pre">pizzaee.zip</span></code></a></p>
+</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h2>Exercice<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="exercice admonition">
+<p class="admonition-title">TP à rendre - Les animaux</p>
+<dl>
+<dt>Projet initial</dt><dd><p>Vous devez télécharger le projet suivant <a class="reference download internal" download="" href="_downloads/62ee540b006c79e5acb062460c973952/animoz.zip"><code class="xref download docutils literal notranslate"><span class="pre">animaux-spring.zip</span></code></a>
+et réaliser les développements à partir de ce projet.</p>
+<p>Ce projet contient la classe <code class="docutils literal notranslate"><span class="pre">com.animoz.AnimozApplication</span></code> pour lancer
+l’application Spring Boot. Pensez à modifier le fichier de configuration
+<code class="file docutils literal notranslate"><span class="pre">src/main/resources/application.properties</span></code> pour mettre à jour
+les paramètres de connexion à la base de données.</p>
+<p>Cette application utilisera la même base de données que celle mise en
+place pour les exercices avec JPA. Vous pouvez ajouter les classes
+d’entités dans ce projet car elles vont nous être utiles.</p>
+</dd>
+<dt>Fonctionnalités à implémenter</dt><dd><p>Prévoyez un menu HTML dans l’application pour accéder à la section
+<span class="guilabel">soigneurs</span> et à la section <span class="guilabel">animaux</span>.</p>
+<ol class="arabic simple">
+<li><p>Afficher la liste des soigneurs (par ordre alphabétique). On affiche
+dans la liste le nom, le numéro et la date de recrutement.</p></li>
+<li><p>Afficher la liste des animaux (par ordre alphabétique). On affiche
+dans la liste, le nom, le nom de l’espèce et le régime alimentaire.</p></li>
+<li><p>Créer une formulaire de recherche pour rechercher un animal par son
+nom (prévoir une recherche de type <code class="docutils literal notranslate"><span class="pre">like</span></code>). Le formulaire de recherche
+sera visible dans la page affichant la liste des animaux.</p></li>
+<li><p>Ajouter un soigneur. On pourra ajouter un soigneur à partir d’une
+page spécifique. Pour ajouter un soigneur, on saisit son nom, son
+numéro et sa date de recrutement. Tous les champs sont obligatoires.
+La date de recrutement ne peut pas être dans le futur.</p></li>
+<li><p>Ajouter un animal. On pourra ajouter un animal à partir d’une page
+spécifique. Pour ajouter un animal, il faut saisir son nom, sa description,
+son régime alimentaire, son espèce. Seul le champ description est optionnel.
+Si un animal avec le même nom existe déjà dans la base de données, la
+création ne doit pas aboutir.</p></li>
+<li><p>Afficher le détail d’un animal. Le détail d’un animal est visible
+en cliquant sur la ligne de l’animal dans la liste. On affiche le nom,
+le nom de l’espèce, le régime alimentaire, la description et la liste
+des soigneurs.</p></li>
+<li><p>Depuis l’écran de détail d’un animal, on doit pouvoir modifier la liste
+des soigneurs. Dès qu’un animal a au moins un soigneur, il n’est pas
+possible d’enlever tous les soigneurs de la liste : <strong>un animal doit
+avoir au moins un soigneur</strong>.</p></li>
+</ol>
+<p>Pour réaliser ces fonctionnalités, vous respecterez le modèle MVC ainsi
+qu’un modèle de développement en couche.</p>
+<p>Il n’est pas demandé de réaliser des traitements sur le poste client
+en JavaScript, mais <strong>toutes les validations</strong> doivent être réalisées
+sur le serveur.</p>
 </dd>
 </dl>
 </div>
