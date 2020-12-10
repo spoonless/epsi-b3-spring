@@ -44,7 +44,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Spring Data avec JPA" href="spring_data_jpa.html" />
-    <link rel="prev" title="Les API Web avec Spring Web MVC" href="spring_mvc_apiweb.html" /> 
+    <link rel="prev" title="Introduction à Thymeleaf" href="thymeleaf.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -312,6 +312,23 @@
 <li class="toctree-l2"><a class="reference internal" href="spring_mvc_apiweb.html#implementation-d-un-client">Implémentation d’un client</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="thymeleaf.html">Introduction à Thymeleaf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#integration-de-thymeleaf">Intégration de Thymeleaf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="thymeleaf.html#pour-une-application-avec-spring-boot">Pour une application avec Spring Boot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="thymeleaf.html#pour-une-application-sans-spring-boot">Pour une application sans Spring Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#les-attributs-thymeleaf">Les attributs Thymeleaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-d-evaluation">${…} : l’expression d’évaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-de-selection">*{…} : l’expression de sélection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-de-message">#{…} : l’expression de message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#l-expression-d-url">&#64;{…} : l’expression d’URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#prevention-de-l-injection">Prévention de l’injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#les-conditions-et-les-boucles">Les conditions et les boucles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#operateur-de-coalescence-des-nuls">Opérateur de coalescence des nuls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf.html#le-formatage-des-donnees">Le formatage des données</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Spring et l'accès aux bases de données</span></p>
 <ul class="current">
@@ -425,7 +442,7 @@
         <a href="spring_data_jpa.html" class="btn btn-neutral float-right" title="Spring Data avec JPA" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="spring_mvc_apiweb.html" class="btn btn-neutral float-left" title="Les API Web avec Spring Web MVC" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="thymeleaf.html" class="btn btn-neutral float-left" title="Introduction à Thymeleaf" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
   </div>
   
@@ -584,7 +601,7 @@ cas là.</p>
 </div>
 <div class="section" id="acces-aux-donnees-avec-jdbc">
 <h2>Accès aux données avec JDBC<a class="headerlink" href="#acces-aux-donnees-avec-jdbc" title="Lien permanent vers ce titre">¶</a></h2>
-<p><em>Spring Data Access</em> fournit la classe <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> pour encapsuler les appels
+<p><em>Spring Data Access</em> fournit la classe <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> pour encapsuler les appels
 JDBC. Cette classe est simplement une classe utilitaire qui réalise :</p>
 <ul class="simple">
 <li><p>la traduction d’une éventuelle <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/SQLException.html">SQLException</a> dans la hiérarchie uniformisée des
@@ -592,8 +609,8 @@ exceptions de <em>Spring Data Access</em> (Cf. section suivante).</p></li>
 <li><p>l’encapsulation des appels à <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/Statement.html">Statement</a> et <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/PreparedStatement.html">PreparedStatement</a></p></li>
 <li><p>une aide pour la création d’objets à partir d’un <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/ResultSet.html">ResultSet</a></p></li>
 </ul>
-<p>La classe <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> se construit à partir d’une <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/javax/sql/DataSource.html">DataSource</a>. L’implémentation
-recommandée est de créer une instance de <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> au moment de l’injection
+<p>La classe <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> se construit à partir d’une <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/javax/sql/DataSource.html">DataSource</a>. L’implémentation
+recommandée est de créer une instance de <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> au moment de l’injection
 de la <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/javax/sql/DataSource.html">DataSource</a> dans le <em>bean</em>. Ainsi, il est suffit de définir la <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/javax/sql/DataSource.html">DataSource</a>
 dans le contexte de déploiement <em>Spring</em> de l’application.</p>
 <div class="literal-block-wrapper docutils container" id="id7">
@@ -624,11 +641,11 @@ dans le contexte de déploiement <em>Spring</em> de l’application.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>L’implémentation de la classe <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> est <em>thread-safe</em>. Cela signifie qu’elle
+<p>L’implémentation de la classe <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> est <em>thread-safe</em>. Cela signifie qu’elle
 peut être déclarée comme attribut d’un <em>bean singleton</em> utilisé dans un environnement
 concurrent (comme dans un serveur).</p>
 </div>
-<p>La classe <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> permet d’exécuter des requêtes SQL de manière simplifiée.</p>
+<p>La classe <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> permet d’exécuter des requêtes SQL de manière simplifiée.</p>
 <div class="literal-block-wrapper docutils container" id="id8">
 <div class="code-block-caption"><span class="caption-text">Un exemple complet d’utilisation d’une instance de JdbcTemplate</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">fr.epsi.b3</span><span class="p">;</span>
@@ -682,9 +699,9 @@ concurrent (comme dans un serveur).</p>
 </div>
 </div>
 <p>Dans l’exemple ci-dessus, la classe interne <code class="docutils literal notranslate"><span class="pre">UserRowMapper</span></code> implémente
-l’interface <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/RowMapper.html">RowMapper&lt;T&gt;</a> qui permet de transformer une ligne retournée par
+l’interface <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/RowMapper.html">RowMapper&lt;T&gt;</a> qui permet de transformer une ligne retournée par
 un <a class="reference external" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/ResultSet.html">ResultSet</a> en objet.</p>
-<p><cite>Spring Data Access</cite> fournit également la classe utilitaire <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/simple/SimpleJdbcInsert.html">SimpleJdbcInsert</a>
+<p><cite>Spring Data Access</cite> fournit également la classe utilitaire <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/simple/SimpleJdbcInsert.html">SimpleJdbcInsert</a>
 pour faciliter la génération de requête d’insertion :</p>
 <div class="literal-block-wrapper docutils container" id="id9">
 <div class="code-block-caption"><span class="caption-text">Exemple d’utilisation de la classe SimpleJdbcInsert</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
@@ -756,7 +773,7 @@ pour faciliter la génération de requête d’insertion :</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>À la ligne 22, on crée une instance de <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/simple/SimpleJdbcInsert.html">SimpleJdbcInsert</a> en précisant le nom
+<p>À la ligne 22, on crée une instance de <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/simple/SimpleJdbcInsert.html">SimpleJdbcInsert</a> en précisant le nom
 de la table pour laquelle on souhaite générer des requêtes d’insertion. Aux
 lignes 26-27, on crée un dictionnaire des valeurs à insérer et enfin, à la
 ligne 29, on appelle la méthode <code class="docutils literal notranslate"><span class="pre">execute</span></code> en passant le dictionnaire
@@ -846,7 +863,7 @@ pour pouvoir la positionner dans l’objet de type <code class="docutils literal
 <h3>Intégration dans une application Spring Boot<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Spring Boot est un projet conçu pour simplifier considérablement la configuration
 des applications basées sur le Spring Framework. Si Vous souhaitez intégrer
-le support du <a class="reference external" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> dans votre application, il suffit d’ajouter la
+le support du <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html">JdbcTemplate</a> dans votre application, il suffit d’ajouter la
 dépendance suivante :</p>
 <div class="literal-block-wrapper docutils container" id="id11">
 <div class="code-block-caption"><span class="caption-text">Dépendance pour le fichier pom.xml d’un projet Maven</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
@@ -999,7 +1016,7 @@ de type <a class="reference external" href="https://docs.spring.io/spring-framew
         <a href="spring_data_jpa.html" class="btn btn-neutral float-right" title="Spring Data avec JPA" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="spring_mvc_apiweb.html" class="btn btn-neutral float-left" title="Les API Web avec Spring Web MVC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+        <a href="thymeleaf.html" class="btn btn-neutral float-left" title="Introduction à Thymeleaf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
     </div>
   
